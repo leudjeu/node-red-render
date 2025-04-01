@@ -1,27 +1,42 @@
-const http = require("http");
-const RED = require("node-red");
-const path = require("path");
+const express = require('express');
+const mqtt = require('mqtt');
 
-// Créer un serveur HTTP
-const server = http.createServer();
+const app = express();
 
-// Configuration de Node-RED
-const settings = {
-    httpAdminRoot: "/", // Interface Node-RED
-    httpNodeRoot: "/api", // Endpoints accessibles
-    userDir: path.join(__dirname, "data"), // Répertoire où se trouve flows.json
-    flowFile: "flows.json", // Nom du fichier contenant les flux
-    functionGlobalContext: {}, // Variables globales
-    uiPort: process.env.PORT || 10000 // Utilisation du port défini par Render
-};
+// Port utilisé par Render (défini automatiquement)
+const PORT = process.env.PORT || 10000;
 
-// Initialiser Node-RED avec les paramètres
-RED.init(server, settings);
+// Création d'un client MQTT
+const MQTT_BROKER = 'mqtt://broker.hivemq.com';
+const MQTT_TOPIC = 'test/topic';
 
-// Démarrer le serveur HTTP
-server.listen(process.env.PORT || 10000, () => {
-    console.log(`Node-RED fonctionne sur le port ${process.env.PORT || 10000}`);
+const client = mqtt.connect(MQTT_BROKER);
+
+client.on('connect', () => {
+    console.log('✅ Connecté au broker MQTT');
+    client.subscribe(MQTT_TOPIC, (err) => {
+        if (err) {
+            console.error('❌ Erreur de souscription:', err);
+        } else {
+            console.log(`📡 Souscrit au topic: ${MQTT_TOPIC}`);
+        }
+    });
 });
 
-// Lancer Node-RED
-RED.start();
+client.on('message', (topic, message) => {
+    console.log(`📩 Message reçu sur ${topic}: ${message.toString()}`);
+});
+
+client.on('error', (err) => {
+    console.error('⚠️ Erreur MQTT:', err);
+});
+
+// Route de test pour Render
+app.get('/', (req, res) => {
+    res.send('Node-RED fonctionne et le serveur est en ligne 🚀');
+});
+
+// Lancer le serveur Express
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`🚀 Serveur démarré sur http://localhost:${PORT}`);
+});
