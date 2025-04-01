@@ -12,15 +12,15 @@ const settings = {
     userDir: path.join(__dirname, "data"), // Répertoire où se trouve flows.json
     flowFile: "flows.json", // Nom du fichier contenant les flux
     functionGlobalContext: {}, // Variables globales
-    uiPort: process.env.PORT || 1880 // Utilisation du port défini par Render
+    uiPort: process.env.PORT || 10000 // Utilisation du port défini par Render
 };
 
 // Initialiser Node-RED avec les paramètres
 RED.init(server, settings);
 
 // Démarrer le serveur HTTP
-server.listen(process.env.PORT || 1880, () => {
-    console.log(`Node-RED fonctionne sur le port ${process.env.PORT || 1880}`);
+server.listen(process.env.PORT || 10000, () => {
+    console.log(`Node-RED fonctionne sur le port ${process.env.PORT || 10000}`);
 });
 
 // Lancer Node-RED
