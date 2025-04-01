@@ -1,0 +1,409 @@
+[
+    {
+        "id": "24057b83a4343fdd",
+        "type": "tab",
+        "label": "Flux 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0464d428b0d6d70d",
+        "type": "mqtt in",
+        "z": "24057b83a4343fdd",
+        "name": "temperature",
+        "topic": "sensor/temperature",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "14eaea79cb441a7a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 160,
+        "wires": [
+            [
+                "221abf150929c2d4"
+            ]
+        ]
+    },
+    {
+        "id": "74d073729762ad6e",
+        "type": "mqtt in",
+        "z": "24057b83a4343fdd",
+        "name": "tds",
+        "topic": "sensor/tds",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "14eaea79cb441a7a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 240,
+        "wires": [
+            [
+                "6e6312e7dcc1b6f0"
+            ]
+        ]
+    },
+    {
+        "id": "6e6312e7dcc1b6f0",
+        "type": "ui_gauge",
+        "z": "24057b83a4343fdd",
+        "name": "",
+        "group": "939a1bf8cf80544a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "TDS",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "2000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 470,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "1373e77a9a01f775",
+        "type": "mqtt in",
+        "z": "24057b83a4343fdd",
+        "name": "Turbidité",
+        "topic": "sensor/turbidite",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "14eaea79cb441a7a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 300,
+        "wires": [
+            [
+                "9c1e213bdb617f09"
+            ]
+        ]
+    },
+    {
+        "id": "ead9bd749c22b662",
+        "type": "mqtt in",
+        "z": "24057b83a4343fdd",
+        "name": "ph",
+        "topic": "sensor/ph",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "14eaea79cb441a7a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 380,
+        "wires": [
+            [
+                "2f7185786897c806"
+            ]
+        ]
+    },
+    {
+        "id": "245f3d905ef2fdc9",
+        "type": "mqtt in",
+        "z": "24057b83a4343fdd",
+        "name": "Oxygène Dissous",
+        "topic": "sensor/oxygene",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "14eaea79cb441a7a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 460,
+        "wires": [
+            [
+                "6a7ee54a022ffeee"
+            ]
+        ]
+    },
+    {
+        "id": "9c1e213bdb617f09",
+        "type": "ui_gauge",
+        "z": "24057b83a4343fdd",
+        "name": "",
+        "group": "63f291301212a216",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Turbidité",
+        "label": "NTU",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 480,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "6a7ee54a022ffeee",
+        "type": "ui_gauge",
+        "z": "24057b83a4343fdd",
+        "name": "",
+        "group": "76d9d3ec90277eda",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Oxygène Dissous",
+        "label": "mg/L",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "20",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 510,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "78e991e317538ca5",
+        "type": "ui_gauge",
+        "z": "24057b83a4343fdd",
+        "name": "",
+        "group": "0f9838233d620aad",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Conductivité",
+        "label": "μS/cm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "2000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 490,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "80757812d9472b1a",
+        "type": "mqtt in",
+        "z": "24057b83a4343fdd",
+        "name": "conductivité",
+        "topic": "sensor/conductivite",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "14eaea79cb441a7a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 520,
+        "wires": [
+            [
+                "78e991e317538ca5"
+            ]
+        ]
+    },
+    {
+        "id": "221abf150929c2d4",
+        "type": "ui_gauge",
+        "z": "24057b83a4343fdd",
+        "name": "",
+        "group": "b5d01c1af241429c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#002db3",
+            "#00e60f",
+            "#f3f702"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 470,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "2f7185786897c806",
+        "type": "ui_gauge",
+        "z": "24057b83a4343fdd",
+        "name": "",
+        "group": "3036669332fc7594",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "PH",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "14",
+        "colors": [
+            "#ed0707",
+            "#46b448",
+            "#9d3acb"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 470,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "14eaea79cb441a7a",
+        "type": "mqtt-broker",
+        "name": "broker.hivemq.com",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "939a1bf8cf80544a",
+        "type": "ui_group",
+        "name": "TDS",
+        "tab": "409ae1bca3b1e842",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "63f291301212a216",
+        "type": "ui_group",
+        "name": "Turbidité",
+        "tab": "409ae1bca3b1e842",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "76d9d3ec90277eda",
+        "type": "ui_group",
+        "name": "Oxygéne Dissous",
+        "tab": "409ae1bca3b1e842",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0f9838233d620aad",
+        "type": "ui_group",
+        "name": "Conductivité",
+        "tab": "409ae1bca3b1e842",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b5d01c1af241429c",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "409ae1bca3b1e842",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3036669332fc7594",
+        "type": "ui_group",
+        "name": "PH",
+        "tab": "409ae1bca3b1e842",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "409ae1bca3b1e842",
+        "type": "ui_tab",
+        "name": "seggetech",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
